@@ -17,7 +17,7 @@
         public override double GetArea()
         {
             var answer = Math.PI * _radius * _radius;
-            return double.IsFinite(answer) ? answer : throw new Exception("The area of figure is too large.");
+            return double.IsFinite(answer) ? answer : throw new OverflowException("The area of figure is too large.");
         }
     }
 }

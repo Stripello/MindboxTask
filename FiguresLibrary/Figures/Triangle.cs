@@ -15,9 +15,9 @@
             }
 
             //Expression could be simplified according to basic rules of Boolean algebra, but this will lead to loosing obvious geometrical interpritation of expression.
-            if (  !((firstSide <= secondSide + thirdSide) && 
-                  (secondSide <= firstSide + thirdSide)  &&
-                  (thirdSide <= firstSide + secondSide)) )
+            if (!((firstSide <= secondSide + thirdSide) &&
+                  (secondSide <= firstSide + thirdSide) &&
+                  (thirdSide <= firstSide + secondSide)))
             {
                 throw new ArgumentException("Can't create triangle from entered sides.");
             }
@@ -31,7 +31,7 @@
         {
             var halfPerimeter = (_firstSide + _secondSide + _thirdSide) / 2;
             var answer = Math.Sqrt(halfPerimeter * (halfPerimeter - _firstSide) * (halfPerimeter - _secondSide) * (halfPerimeter - _thirdSide));
-            return double.IsFinite(answer) ? answer : throw new ArgumentException("The area of figure is too large.");
+            return double.IsFinite(answer) ? answer : throw new OverflowException("The area of figure is too large.");
         }
 
         public bool IsRightTriangle()
@@ -39,6 +39,10 @@
             var firstSideSquare = _firstSide * _firstSide;
             var secondSideSquare = _secondSide * _secondSide;
             var thirdSideSquare = _thirdSide * _thirdSide;
+            if (double.IsInfinity(firstSideSquare) || double.IsInfinity(secondSideSquare) || double.IsInfinity(thirdSideSquare))
+            {
+                throw new OverflowException("Can't check this triangle, sides is too big.");
+            }
             return (firstSideSquare == secondSideSquare + thirdSideSquare ||
                     secondSideSquare == firstSideSquare + thirdSideSquare ||
                     thirdSideSquare == firstSideSquare + secondSideSquare);

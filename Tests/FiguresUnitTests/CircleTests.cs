@@ -1,6 +1,6 @@
-using Xunit;
 using FiguresLibrary.Figures;
 using System;
+using Xunit;
 
 namespace FiguresUnitTests
 {
@@ -12,6 +12,7 @@ namespace FiguresUnitTests
             Assert.Throws<ArgumentException>(() => new Circle(-1));
         }
 
+        #region GetArea
         [Theory]
         [InlineData(0, 0)]
         [InlineData(1, Math.PI)]
@@ -35,10 +36,11 @@ namespace FiguresUnitTests
             var testCircle = new Circle(double.MaxValue);
 
             //Act
-            var exception = Record.Exception( ()=> testCircle.GetArea());
+            var exception = Record.Exception(() => testCircle.GetArea());
 
             //Assert
             Assert.True(exception.Message == "The area of figure is too large.");
         }
+        #endregion
     }
 }

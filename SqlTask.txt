@@ -1,0 +1,6 @@
+--The database suppose to have junction table 'ProductCategory' to create many-to-many relation between 'Product' and 'Category' tables.
+
+
+SELECT productname , categoryname FROM
+Product LEFT JOIN ProductCategory ON Product.ProductId = ProductCategory.productid
+LEFT JOIN Category ON ProductCategory.categoryid = Category.categoryid;

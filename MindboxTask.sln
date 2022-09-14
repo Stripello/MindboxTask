@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiguresLibrary", "FiguresLibrary\FiguresLibrary.csproj", "{0D119524-15C6-4999-9C3B-F93708581B5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiguresLibrary", "FiguresLibrary\FiguresLibrary.csproj", "{0D119524-15C6-4999-9C3B-F93708581B5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiguresUnitTests", "Tests\FiguresUnitTests\FiguresUnitTests.csproj", "{BF9352DD-32AF-40A5-B2CF-36C917BFBED1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiguresUnitTests", "Tests\FiguresUnitTests\FiguresUnitTests.csproj", "{BF9352DD-32AF-40A5-B2CF-36C917BFBED1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
