@@ -36,9 +36,11 @@
 
         public bool IsRightTriangle()
         {
-            var firstSideSquare = _firstSide * _firstSide;
-            var secondSideSquare = _secondSide * _secondSide;
-            var thirdSideSquare = _thirdSide * _thirdSide;
+            //Number 10 was chosen based on consideration 2^-32 ~ 2*e-10.
+            const int accurracy = 10;
+            var firstSideSquare = Math.Round(_firstSide * _firstSide , accurracy);
+            var secondSideSquare = Math.Round(_secondSide * _secondSide , accurracy );
+            var thirdSideSquare = Math.Round(_thirdSide * _thirdSide , accurracy);
             if (double.IsInfinity(firstSideSquare) || double.IsInfinity(secondSideSquare) || double.IsInfinity(thirdSideSquare))
             {
                 throw new OverflowException("Can't check this triangle, sides is too big.");

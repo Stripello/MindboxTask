@@ -16,17 +16,19 @@ namespace FiguresUnitTests
         [Theory]
         [InlineData(0, 0)]
         [InlineData(1, Math.PI)]
-        [InlineData(3.7, 43.008403427644269)]
+        [InlineData(3.7, 43.0084034276)]
         public void GetArea_Succed(double radius, double expectedArea)
         {
             //Arrange
+            //Number 10 was chosen based on consideration 2^-32 ~ 2*e-10.
+            const int accuracy = 10;
             var testCircle = new Circle(radius);
 
             //Act
             var actual = testCircle.GetArea();
 
             //Assert
-            Assert.Equal(expectedArea, actual);
+            Assert.Equal(Math.Round(expectedArea,accuracy), Math.Round(actual,accuracy));
         }
 
         [Fact]
